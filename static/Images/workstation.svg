@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="36px" viewBox="0 0 50 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_workstations</title>
+    <desc>Created with Sketch.</desc>
+    <g id="ICONS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PLP-3.0-icons" transform="translate(-128.000000, -1150.000000)" fill="#346AA0">
+            <g id="ic_workstations" transform="translate(128.000000, 1150.000000)">
+                <g id="Group" transform="translate(2.000000, 6.000000)">
+                    <rect id="Rectangle-18" x="4" y="0" width="37.1801658" height="4.41212121"></rect>
+                    <polygon id="Rectangle-18" transform="translate(3.523890, 12.153846) rotate(90.000000) translate(-3.523890, -12.153846) " points="-8 10 15.04778 10 15.04778 14.3076923 -8 14.3076923"></polygon>
+                    <polygon id="Rectangle-18" transform="translate(41.507418, 12.153846) rotate(90.000000) translate(-41.507418, -12.153846) " points="30 10 53.0148365 10 53.0148365 14.3076923 30 14.3076923"></polygon>
+                    <polygon id="Rectangle-18" transform="translate(32.957982, 9.368865) scale(1, -1) translate(-32.957982, -9.368865) " points="28 6 37.9159642 6 37.9159642 12.7377302 28 12.7377302"></polygon>
+                    <polygon id="Rectangle-18" transform="translate(32.957982, 17.368865) scale(1, -1) translate(-32.957982, -17.368865) " points="28 14 37.9159642 14 37.9159642 20.7377302 28 20.7377302"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

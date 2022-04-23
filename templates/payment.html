@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FunRento</title> <!--Name of site-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+        <link rel="icon" type="image/x-icon" href="static/Images/logo.png">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--Declaration of css files-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'CSS/bedroom.css' %}"></link>
+        <link rel="script" type="text/javascript" href="{% static 'js/index.js' %}"></link>
+      </head>
+      <body>
+    
+    <script>
+        var input = document.getElementById("input");
+
+        input.onkeydown = function () {
+            if (input.value.length > 0) {
+                if (input.value.length % 4 == 0) {
+                input.value += "    ";
+             }
+         }
+        }
+    </script>
+
+    <div style="width: 500px;height: 500px;border: 2px;border-color: black;margin-top: 200px;margin-left: 500px;">
+       <h1 style="border-radius: 5px;border-style: double;text-align: center;">Card Details</h1>
+       <h4 style="margin-top: -380px;margin-left: 20px;">Card Number</h4> 
+       <input style="margin-left: 20px;width: 300px;height: 30px;" type="text" id="input" maxlength="16"/>
+        
+    </div>

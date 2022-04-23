@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 10%;
+    height: 10%;
+    background-color: white;
+    padding: 0 5px;
+  }
+  .column:hover{
+    color:#337ab7;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    padding: 5px;
+    text-align: center;
+    background-color:white;
+  }
+
+
+  logo{
+    padding-left: 0px;
+}
+.navbar-nav>li {
+    padding-top: 17px;
+    padding-left: 20px;
+    color:black;
+}
+.container-fluid {
+
+    background-color: white;
+}
+.navbar-nav>li>select{
+    width: 140px;
+    padding-left: 20px;
+    text-align: left;
+    margin-top: 8px;
+    font-size: 20px;
+    border: 0px;
+    height: 25px;
+    font-weight: bold;
+    outline: 0px;
+    color:black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+
+
+

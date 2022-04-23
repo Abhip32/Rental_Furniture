@@ -1,0 +1,484 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FunRento</title> <!--Name of site-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+        <link rel="icon" type="image/x-icon" href="static/Images/logo.png">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--Declaration of css files-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'CSS/living_room.css' %}"></link>
+        <link rel="script" type="text/javascript" href="{% static 'js/index.js' %}"></link>
+      </head>
+      <body>
+            <!--Navigation Bar starts-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" style="margin-top: -18px;margin-left: 9px;"href="http://127.0.0.1:8000/"><img id="logo" src="static/Images/logo.png" alt=""/></a><!--logo-->
+          </div>
+          <ul class="nav navbar-nav">
+            <li>
+              <select name="Locations" id="Locations"> 
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Banglore">Banglore</option>
+              </select></li>            
+            <li><a href="bedroom">BEDROOM</a></li> 
+            <li><a href="living_room">LIVING ROOM</a></li>
+            <li><a href="office">OFFICE FURNITURE</a></li>
+            <li><a href="dining">DINNING ROOM</a></li>
+            <li><a href="kids">KIDS ROOM</a></li>
+            <li><form action="{% url 'log' %}" method="POST">
+              {% csrf_token %}
+              <button style="margin-top: 6px;background-color: white;color:#337ab7;border-radius: 30px;border-style:none;" type="submit"><img src="static/Images/user.png"/>{{u}}</button>
+            </form></li>
+            <!--<li style="margin-left:75px;margin-top: -10px;"><a href="login"/><img src="static/Images/user.png" <h4 id="uid">{{u}}</h4></li>-->
+            <li style="padding-left:15px;margin-top: -15px;"><a href="cart"/><img src="static/Images/cart.png"</li>
+            <li><form action="{% url 'logout' %}" method="POST">
+              {% csrf_token %}
+              <button style="margin-top: 6px;background-color: white;color:#337ab7;border-radius: 30px;border-style:solid;" type="submit">Log Out</button>
+            </form></li>
+          </ul>
+        </div>
+      </nav>
+      <!--Navigation Bar Ends-->
+      <img style="margin-left: 50px;"src="static/Images/unlmtd_plp_banner_v4.jpg" alt=""/>
+      <h2 style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color:#337ab7;margin-left: 660px;"> LIVING ROOM</h2>
+      <hr style="margin-left: 400px;margin-right:370px">
+
+
+<div class="row" style="margin-left: 560px;">
+  <div class="column">
+    <div class="card">
+      <a href="#queen"></a><img src="static/Images/ic_1_sofa.svg"/>
+      <p>Sofa</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <a href="#Storage"></a><img src="static/Images/ic_2_sofa_sets.svg"/>
+      <p>Sofa Sets</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <a href=""></a><img src="static/Images/ic_1_recliner.svg"/>
+      <p style="margin-left:10px">Recliner</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <a href=""></a><img src="static/Images/ic_2_multifunctional.svg"/>
+      <p>Multifunctional </p>
+    </div>
+  </div>
+</div>
+<hr >
+
+
+
+
+<h3 id="queen" style="margin-left: 180px;">Sofa</h3>
+<style> 
+.grow {
+  border-radius: 10px;
+  height: 380px;
+  width: 25%;
+  margin: 5px 1% 5px 1%;
+  float: left;
+  margin-bottom: 40px;
+  position: relative;
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  text-align: center;
+  overflow: hidden;
+}
+.grow:hover {
+  height: 520px;
+  background-color: #337ab7;
+}
+button{
+  background-color: white;
+  color: #337ab7;
+}
+button:hover{
+  background-color: #337ab7;
+  color: white;
+}
+
+footer{
+ margin-top: 500px;
+ height: 300px;
+ background-color: #337ab7;
+ font-size: 25px;
+ text-align: justify;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-weight: bolder;
+}
+
+#info{
+  margin-top: 20px;
+  margin-right:800px;
+  margin-left: 180px;
+}
+#icon1{
+  padding: 15px;
+  margin-top: -20px;
+  margin-left: 560px;
+  margin-bottom: -20px
+}
+#icon2{
+  padding: 15px;
+}
+#icon3{
+  padding: 15px;
+}
+#icon4{
+  padding: 15px;
+}
+
+</style>
+<div class="grow" style="background-color: white;margin-left: 180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+    <img style="width: 100%;"src="static/Images/sofa1.jpg" name="url"/>
+    <h3 style="margin-top: 5px;margin-left: -40px;" name="name">Flex L-Shaped Living Room</h3> 
+    <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+    <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o1}}</h4>
+    <hr style="margin-top: -5px;">
+    <form action="{% url 'lrindex1' %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 580/mo</button>
+    </form>
+    <hr>  
+  
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/sofasa2.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -58px;">Flex L-Shaped Living Liliac</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o2}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex2' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 680/mo</button>
+  </form>
+   <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/sofa3.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -50px;">Milli L-Shaped Living Room</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o3}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex3' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 580/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+
+
+
+
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-left:180px;margin-top: 40px;clear: both;">
+  <img style="width: 100%;"src="static/Images/sofa4.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -45px;">Milli L-Shaped Living (Grey)</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o4}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex4' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 980/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-top: 40px;">
+  <img style="width: 100%;"src="static/Images/sofa5.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -105px;">Flex Two Sitter - Lilac</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o5}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex5' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 740/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-top: 40px;">
+  <img style="width: 100%;"src="static/Images/sofa6.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -145px;">OSO Three Seater</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o6}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex6' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 820/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+
+
+<h3 id="Storage" style="margin-top: 100px;margin-left: 180px;clear: both;">Sofs Sets</h3>
+
+<div class="grow" style="background-color: white;margin-left:180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);clear: both;margin-top: 40px;">
+  <img style="width: 100%;"src="static/Images/sofas1.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -135px;">Flex Five Sitter Set</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o7}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex7' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 980/mo</button>
+  </form>
+   <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</button>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-top: 40px;">
+  <img style="width: 100%;"src="static/Images/sofas2.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -127px;">Liliac Five Sitter Set</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o8}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex8' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 740/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-top: 40px;">
+  <img style="width: 100%;"src="static/Images/sofas4.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -120px;">Azure Five Sitter Set</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o9}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex9' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 1180/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+
+
+</style>
+<div class="grow" style="background-color: white;margin-left: 180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);clear: both;">
+  <img style="width: 100%;"src="static/Images/sofas5.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -155px;">Amor Living Room</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o10}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex10' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 1180/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/sofas6.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -110px;">Flex Five Sitter -Liliac</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o11}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex11' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 900/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/sofas9.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -185px;">Vive Five Sitter</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o12}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex12' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 1140/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+
+
+
+
+
+<h3 id="Storage" style="margin-top: 400px;margin-left: 180px;clear: both;">Recliner</h3>
+
+</style>
+<div class="grow" style="background-color: white;margin-left: 180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/re1.jpg"/>
+  <h3 style="margin-top: 5px;margin-left:-200px;">The Lounger</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o13}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex13' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 580/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/re2.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -210px;">Twin Adobe</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o14}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex14' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 680/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/re3.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -125px;">Fabric Lounger Teal</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o15}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex15' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 1140/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+
+<div class="grow" style="background-color: white;margin-left: 180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);clear: both;">
+  <img style="width: 100%;"src="static/Images/re4.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -70px;">Fluent Motorised Recliner</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o16}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex16' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 360/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/re5.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -80px;">Blurt Motorised Recliner</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o17}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex17' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 720/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/re6.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -90px;">The Fabric Lounger Brick</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o18}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex18' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 720/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+
+
+
+
+<h3 id="Storage" style="margin-top: 400px;margin-left: 180px;clear: both;">Multifunctional</h3>
+
+</style>
+<div class="grow" style="background-color: white;margin-left: 180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);clear: both;">
+  <img style="width: 100%;"src="static/Images/m1.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -255px;">Bounce</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o19}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex19' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 860/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/m2.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -235px;">Bounce M</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o20}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex20' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 920/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
+  <img style="width: 100%;"src="static/Images/Bounce.jpg"/>
+  <h3 style="margin-top: 5px;margin-left: -240px;">Bounce B</h3> 
+  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
+  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o18}}</h4>
+  <hr style="margin-top: -5px;">
+  <form action="{% url 'lrindex21' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 720/mo</button>
+  </form>
+  <hr>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
+</div>
+<br>
+<br>
+
+
+<footer>
+    <p>
+      <br>
+      <img style="margin-left: 665px;clear: both;"src="static/Images/logo.png"/>
+      <h3 style="margin-left:670px;color: white;">Follow us On</h3>
+    </p>
+    <a id = "icon1"  href="https://www.google.com/">
+      <img alt="Qries" src="static/Images/icon (1).png"
+      width=50" height="50"/></a>
+    <a id = "icon2"href="https://www.google.com/">
+        <img alt="Qries" src="static/Images/icon (2).png"
+        width=50" height="50"/></a>
+    <a id = "icon3"href="https://www.google.com/">
+          <img alt="Qries" src="static/Images/icon (3).png"
+          width=50" height="50"/></a>
+    <a id = "icon4"href="https://www.google.com/">
+          <img alt="Qries" src="static/Images/icon (4).png"
+          width=50" height="50"></a>
+          <h2 style="margin-left:140px;margin-top:-150px;color: white;">Contact us</h2>
+          <h4 style="margin-left:140px;color: white;">Mail : abc123@gmail.com</h4>
+          <h4 style="margin-left:140px;color: white;">Contact us: 1234567890</h4>
+  
+          <h2 style="margin-left:1100px;margin-top:-107px;color: white;">Address</h2>
+          <h4 style="margin-left:1100px;color: white;">Line 1 sample text</h4>
+          <h4 style="margin-left:1100px;color: white;">Line 2 sample text</h4>
+          <h4 style="margin-left:1100px;color: white;">Line 3 sample text</h4>
+  
+  
+  </footer>
+
+
+</body>
+</html>
