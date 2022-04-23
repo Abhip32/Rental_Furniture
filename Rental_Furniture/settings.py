@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'living_room',
     'kids',
     'dinning',
+    'success',
     'resetpassword',
     'django.contrib.admin',
     'django.contrib.auth',

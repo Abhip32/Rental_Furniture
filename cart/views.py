@@ -38,6 +38,7 @@ def cindex1(request):
              neworder=Order(id=ran,img=item.url,username=uid,productname=item.name,dateoforder=today,dateofdelivery=NextDay_Date,price=item.price,status="Pending",dateofreturn=ret,progress="0",placeofsender="Mumbai",placeofreceiver=ad)
              neworder.save()
              
+             
 
     pdf = FPDF()
     pdf.add_page()
@@ -62,6 +63,7 @@ def cindex1(request):
     pdf.output(path)
     Cart.objects.all().delete()
     return render(request,"payment.html")
+    
 
 
 
