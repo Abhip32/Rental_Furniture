@@ -1,5 +1,5 @@
 black==23.3.0
-Django==4.0.3
+Django==3.2.20
 Flask==2.2.2
 fpdf==1.7.2
 more_itertools==8.12.0
