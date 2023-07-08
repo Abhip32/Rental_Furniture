@@ -92,12 +92,6 @@ DATABASES = {
     }
 }
 ...
-DATABASES = {
-    'default': {
-        'ENGINE': 'sqlite3',
-        'NAME': 'rental',
-    }
-}
 
 
 # Password validation
