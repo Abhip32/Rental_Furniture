@@ -94,7 +94,7 @@ DATABASES = {
 ...
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'sqlite3',
         'NAME': 'rental',
     }
 }
