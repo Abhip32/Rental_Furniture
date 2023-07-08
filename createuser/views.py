@@ -11,13 +11,13 @@ def index(request):
          if request.method == 'POST':
                 post=Adduser()
                 post.username= request.POST.get('username')
-                post.Password= request.POST.get('Password')
-                post.Fname= request.POST.get('Fname')
-                post.Lname= request.POST.get('Lname')
-                post.Address= request.POST.get('Address')
-                post.Phone_No= request.POST.get('Phone_No')
-                post.Email= request.POST.get('Email')
-                post.Image=request.POST.get('upload')
+                post.Password= request.POST.get('password')
+                post.Fname= request.POST.get('fname')
+                post.Lname= request.POST.get('lname')
+                post.Address= request.POST.get('address')
+                post.Phone_No= request.POST.get('phone')
+                post.Email= request.POST.get('email')
+                post.Image=request.POST.get('profile')
                 if len(post.Password)>=8:
                     if (len(post.username)!=0):
                          if (len(post.Fname)!=0):

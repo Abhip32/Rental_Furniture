@@ -5,11 +5,11 @@ from numpy import product
 
 # Create your models here.
 class Cart(models.Model):
-    name = models.CharField(max_length=200,primary_key=True)
-    price=models.DecimalField(max_digits=10, decimal_places=2)
-    url=models.CharField(max_length=200)
-    User=models.CharField(max_length=200)
-    total=models.CharField(max_length=200,default=0)
+    name = models.CharField(max_length=200, primary_key=True)
+    price = models.CharField(max_length=200)
+    url = models.CharField(max_length=200)
+    User = models.CharField(max_length=200)
+    quantity = models.CharField(max_length=200)
 
 class Order(models.Model):
     id=models.CharField(max_length=200,primary_key=True)

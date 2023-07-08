@@ -12,7 +12,7 @@ from datetime import date, timedelta
 import datetime
 import time
 from createuser.models import Adduser
-
+from django.db.models import Sum
 # Create your views here.
 def index(request):
     uid=None
@@ -20,13 +20,12 @@ def index(request):
       uid = request.session['uid']
     od=Order.objects.all()
     today = date.today()
-    for items in od:
-        if str(today)>items.dateofreturn:
-            ex=Expired(id=items.id,user=items.username,productname=items.productname,address=items.placeofreceiver)
-            ex.save()
+    cart=Cart.objects.filter(User=uid)
+    total_sum = 0;
+    for item in cart:
+       total_sum=total_sum+int(item.price)
 
-
-    return render(request,'index.html',{'u':uid})
+    return render(request,'index.html',{'u':uid,'cart':cart,'total_sum':total_sum})
 
 def logout(request):
     Session.objects.all().delete()

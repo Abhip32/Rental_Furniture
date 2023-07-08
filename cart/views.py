@@ -18,8 +18,10 @@ import random # define the random module
 
 # Create your views here.
 def index(request):
+    if 'uid' in request.session:
+      uid = request.session['uid']
     products = Cart.objects.all()
-    return render(request,"cart.html",{'list':products})
+    return render(request,"cart.html",{'list':products,'u':uid})
 
 def cindex1(request):
     if 'uid' in request.session:

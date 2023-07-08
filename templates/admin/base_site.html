@@ -2,9 +2,9 @@
 {% load i18n %}
 
 {% block title %}FunRento | Admin{%  endblock %}
-
+{% load static %}
 {% block branding %}
-<img src="/static/Images/logo.png"><h1 id="admin.site.site_header">Admin Panel</h1>
+<img src="{% static 'img/logo/logo.png' %}"><h1 id="admin.site.site_header">Admin Panel</h1>
 {% endblock %}
 {% block extrahead %}
     <style type="text/css">

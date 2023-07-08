@@ -1,239 +1,113 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>FunRento</title> <!--Name of site-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">   
-        <link rel="icon" type="image/x-icon" href="static/Images/logo.png">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--Declaration of css files-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'CSS/bedroom.css' %}"></link>
-        <link rel="script" type="text/javascript" href="{% static 'js/index.js' %}"></link>
-      </head>
-      <body>
-    
-    <script>
-        var input = document.getElementById("input");
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}My Custom Page{% endblock %}
 
-        input.onkeydown = function () {
-            if (input.value.length > 0) {
-                if (input.value.length % 4 == 0) {
-                input.value += " ";
-             }
-         }
-        }
-    </script>
+{% block content %}
 <style>
-    * {
-    box-sizing: border-box;
-}
-.credit-card {
-    width: 360px;
-    height: 400px;
-    margin: 60px auto 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fff;
-    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
-}
-
-.form-header {
-    height: 60px;
-    padding: 20px 30px 0;
-    border-bottom: 1px solid #e1e8ee;
-}
- 
-.form-body {
-    height: 340px;
-    padding: 30px 30px 20px;
-}
-
-.title {
-    font-size: 18px;
-    margin: 0;
-    color: #5e6977;
-}
-
-.card-number,
-.cvv-input input,
-.month select,
-.year select {
-    font-size: 14px;
-    font-weight: 100;
-    line-height: 14px;
-}
- 
-.card-number,
-.month select,
-.year select {
-    font-size: 14px;
-    font-weight: 100;
-    line-height: 14px;
-}
- 
-.card-number,
-.cvv-details,
-.cvv-input input,
-.month select,
-.year select {
-    opacity: .7;
-    color: #86939e;
-}
-
-/* Card Number */
-.card-number {
-    width: 100%;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    border: 2px solid #e1e8ee;
-    border-radius: 6px;
-}
-
-.month select,
-.year select {
-    width: 145px;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    border: 2px solid #e1e8ee;
-    border-radius: 6px;
-    background: url('caret.png') no-repeat;
-    background-position: 85% 50%;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-}
- 
-.month select {
-    float: left;
-}
- 
-.year select {
-    float: right;
-}
-
-.cvv-input input {
-    float: left;
-    width: 145px;
-    padding-left: 20px;
-    border: 2px solid #e1e8ee;
-    border-radius: 6px;
-    background: #fff;
-}
- 
-.cvv-details {
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 16px;
-    float: right;
-    margin-bottom: 20px;
-}
- 
-.cvv-details p {
-    margin-top: 6px;
-}
-
-.paypal-btn,
-.proceed-btn {
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    border-color: transparent;
-    border-radius: 6px;
-}
- 
-.proceed-btn {
-    margin-bottom: 10px;
-    background: #7dc855;
-}
- 
-.paypal-btn a,
-.proceed-btn a {
-    text-decoration: none;
-}
- 
-.proceed-btn a {
-    color: black;
-}
- 
-.paypal-btn a {
-    color: rgba(0, 0, 0, 0.7);
-}
- 
-.paypal-btn {
-    padding-right: 95px;
-    background: url('/static/Images/paypal.png') no-repeat 65% 56% #009cde;
-}
-
-body,
-html {
-    height: 100%;
-    min-height: 100%;
-}
- 
-body {
-    font-family: 'Roboto',
-    sans-serif;
-    margin: 0;
-    background-color: #e7e7e7;
-}
-</style>
-
-<form class="credit-card">
-    <div class="form-header">
-      <h4 class="title">Credit card detail</h4>
-    </div>
-   
-    <div class="form-body">
-      <!-- Card Number -->
-      <input type="text" class="card-number" placeholder="Card Number">
-   
-      <!-- Date Field -->
-      <div class="date-field">
-        <div class="month">
-          <select name="Month">
-            <option value="january">January</option>
-            <option value="february">February</option>
-            <option value="march">March</option>
-            <option value="april">April</option>
-            <option value="may">May</option>
-            <option value="june">June</option>
-            <option value="july">July</option>
-            <option value="august">August</option>
-            <option value="september">September</option>
-            <option value="october">October</option>
-            <option value="november">November</option>
-            <option value="december">December</option>
-          </select>
-        </div>
-        <div class="year">
-          <select name="Year">
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-          </select>
-        </div>
+    .credit-card {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .form-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .form-body {
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-radius: 5px;
+    }
+    
+    .form-body input,
+    .form-body select {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .date-field {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    
+    .cvv-input input {
+      width: 70%;
+    }
+    
+    .cvv-details {
+      margin-left: 10px;
+      padding-top: 5px;
+    }
+    
+    .proceed-btn,
+    .paypal-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form class="credit-card">
+      <div class="form-header">
+        <h4 class="title">Credit card detail</h4>
       </div>
-   
-      <!-- Card Verification Field -->
-      <div class="card-verification">
-        <div class="cvv-input">
-          <input type="text" placeholder="CVV">
+      <div class="form-body">
+        <!-- Card Number -->
+        <input type="text" class="card-number" placeholder="Card Number">
+        <!-- Date Field -->
+        <div class="date-field">
+          <div class="month">
+            <select name="Month" class="form-control">
+              <option value="january">January</option>
+              <option value="february">February</option>
+              <option value="march">March</option>
+              <option value="april">April</option>
+              <option value="may">May</option>
+              <option value="june">June</option>
+              <option value="july">July</option>
+              <option value="august">August</option>
+              <option value="september">September</option>
+              <option value="october">October</option>
+              <option value="november">November</option>
+              <option value="december">December</option>
+            </select>
+          </div>
+          <div class="year">
+            <select name="Year" class="form-control">
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+            </select>
+          </div>
         </div>
-        <div class="cvv-details">
-          <p>3 or 4 digits usually found <br> on the signature strip</p>
+        <!-- Card Verification Field -->
+        <div class="card-verification">
+          <div class="cvv-input">
+            <input type="text" placeholder="CVV" class="form-control">
+          </div>
+          <div class="cvv-details">
+            <p>3 or 4 digits usually found<br>on the signature strip</p>
+          </div>
         </div>
+        <!-- Buttons -->
+        <button type="submit" class="proceed-btn btn btn-primary"><a href="success">Proceed</a></button>
+        <button type="submit" class="paypal-btn btn btn-secondary"><a href="templates/success.html">Pay With</a></button>
       </div>
-   
-      <!-- Buttons -->
-      <button type="submit" class="proceed-btn"><a href="success">Proceed</a></button>
-      <button type="submit" class="paypal-btn"><a href="templates/success.html">Pay With</a></button>
-    </div>
-  </form>
+    </form>
+  </div>
+
+{%endblock}

@@ -1,386 +1,211 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>FunRento</title> <!--Name of site-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">   
-        <link rel="icon" type="image/x-icon" href="static/Images/logo.png">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!--Declaration of css files-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'CSS/living_room.css' %}"></link>
-        <link rel="script" type="text/javascript" href="{% static 'js/index.js' %}"></link>
-      </head>
-      <body>
-            <!--Navigation Bar starts-->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" style="margin-top: -18px;margin-left: 9px;"href="http://127.0.0.1:8000/"><img id="logo" src="static/Images/logo.png" alt=""/></a><!--logo-->
-          </div>
-          <ul class="nav navbar-nav">
-            <li>
-              <select name="Locations" id="Locations"> 
-                <option value="Mumbai">Mumbai</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Banglore">Banglore</option>
-              </select></li>            
-            <li><a href="bedroom">BEDROOM</a></li> 
-            <li><a href="living_room">LIVING ROOM</a></li>
-            <li><a href="office">OFFICE FURNITURE</a></li>
-            <li><a href="dining">DINNING ROOM</a></li>
-            <li><a href="kids">KIDS ROOM</a></li>
-            <li><form action="{% url 'log' %}" method="POST">
-              {% csrf_token %}
-              <button style="margin-top: 6px;background-color: white;color:#337ab7;border-radius: 30px;border-style:none;" type="submit"><img src="static/Images/user.png"/>{{u}}</button>
-            </form></li>
-            <!--<li style="margin-left:75px;margin-top: -10px;"><a href="login"/><img src="static/Images/user.png" <h4 id="uid">{{u}}</h4></li>-->
-            <li style="padding-left:15px;margin-top: -15px;"><a href="cart"/><img src="static/Images/cart.png"</li>
-            <li><form action="{% url 'logout' %}" method="POST">
-              {% csrf_token %}
-              <button style="margin-top: 6px;background-color: white;color:#337ab7;border-radius: 30px;border-style:solid;" type="submit">Log Out</button>
-            </form></li>
-          </ul>
+
+{% extends 'base.html' %}
+
+{% block title %}My Custom Page{% endblock %}
+
+{% block content %}
+   <!-- slider section start -->
+   <div class="breadcrumbs_area">
+    <div class="container">   
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content text-center">
+                    <h2>Livingroom Section</h2>
+                </div>
+            </div>
         </div>
-      </nav>
-      <!--Navigation Bar Ends-->
-      <img style="margin-left: 50px;"src="static/Images/unlmtd_plp_banner_v4.jpg" alt=""/>
-      <h2 style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color:#337ab7;margin-left: 660px;"> WORKSTAIONS</h2>
-      <hr style="margin-left: 400px;margin-right:370px">
+    </div>         
+</div>
+{% if alert%}
+<div class="alert alert-primary" role="alert">
+    "{{alert}}"
+  </div>
+  {%endif %}
 
 
-<div class="row" style="margin-left: 720px">
-  <div class="column">
-    <div class="card">
-      <a href="#queen"></a><img src="static/Images/workstation.svg"/>
-      <p style="text-align:unset;">WORK STATIONS</p>
+
+<!-- shop page section satrt -->
+<div class="shop_page_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="shop_page_inner d-flex ">
+                    <div class="shop_sidebar_widget">
+                        <div class="shop_widget_list categories">
+                            <div class="shop_widget_title categories_title">
+                                <h3>Categories</h3>
+                            </div>
+                            <div class="widget_categories">
+                                <ul>
+                                    <li><a href="#Workstations">Workstations (12)</a></li>
+                                    <li><a href="#chairs">Chairs(2)</a></li>
+                             
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="shop_widget_list">
+                            <div class="shop_widget_title">
+                                <h3>by prices</h3>
+                            </div>
+                            <div class="widget_proce_filter">
+                              <form  method="POST">
+                                    <input type="text" id="amount" name="amount">
+                                    <div id="slider-range"></div>
+                                   
+                                   
+                                      <button type="submit" id="filter">Filter Price</button>
+                                    </form>
+
+                                </form> 
+                            </div>
+                        </div>
+       
+
+                        <div class="shop_widget_thumb">
+                            <img src="assets/img/others/shop-sidebar.png" alt="">
+                        </div>
+                    </div>
+                    <div class="shop_right_sidaber">
+                        <div class="shop_top_bar d-flex justify-content-between">
+                            <div class="shop_top_right d-flex">
+                                <div class="product_sorting">
+                                    <select>
+                                        <option selected value="1">Default Sorting</option>
+                                        <option value="1">Default Sorting2</option>
+                                        <option value="1">Default Sorting3</option>
+                                        <option value="1">Default Sorting3</option>
+                                    </select>
+                                </div>
+                                <div class="shop_filter">
+                                    <select>
+                                        <option selected value="1">Filter</option>
+                                        <option value="1">Filter2</option>
+                                        <option value="1">Filter3</option>
+                                        <option value="1">Filter4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="shop_gallery">
+                          
+
+                            <div id="Workstations" class="row">
+                              <h1 class="p-5">Workstations</h1>
+                              {% for item in items %}
+                              {% if item.Product_Catagory == "Workstation" %}
+                              <div class="col-lg-4 col-md-4 col-sm-6">
+                                <article class="single_product">
+                                    <figure>
+                                        <div class="product_thumb">
+                                            <a ><img src={{item.Product_Image}} alt=""></a>
+                                            <div class="label_product">
+                                                <span class="label_sale">Sale</span>
+                                            </div>
+                                        </div>
+                                        <figcaption class="product_content">
+                                            <h4><a >{{item.Product_Name}}</a></h4>
+                                            <div class="price_box"> 
+                                                <span class="old_price">{{item.Product_Dis_Price}} ₹</span>
+                                            </div>
+                                        </figcaption>  
+                                        {% if item.Product_Quantity != "0" and item.Product_Quantity != 0%}
+                                        <form action="{% url 'oaddToCart' %}" method="POST">
+                                            {% csrf_token %}
+                                        <div class="product_variant_quantity d-flex align-items-center">
+                                            <div class="pro-qty border">
+                                                <input min="1" max="100" type="tex" value="1" name="quantity">
+                                            </div>
+                                          
+                                                <input type="hidden" name="name" value="{{item.Product_Name}}"/>
+                                                <input type="hidden" name="price" value="{{item.Product_Dis_Price}}"/>
+                                                <input type="hidden" name="img" value="{{item.Product_Image}}"/>
+                                                <button class="btn btn-link" type="submit">add to cart</button>  
+                                      
+                                        </div>
+                                    </form>
+                                    {%else%}
+                                        <h5 style="color: red;background-color: transparent;"  class="btn btn-link">Out of Stock</h5>
+                                    {%endif%}
+                                    </figure>
+                                </article>
+                            </div>
+                            {% endif %}
+                              {% endfor %}
+
+
+                              
+                            </div>
+                        </div>
+
+                        <div id="chairs" class="row">
+                          <h1 class="p-5">Chairs</h1>
+                          {% for item in items %}
+                          {% if item.Product_Catagory == "Chairs" %}
+                          <div class="col-lg-4 col-md-4 col-sm-6">
+                            <article class="single_product">
+                                <figure>
+                                    <div class="product_thumb">
+                                        <a ><img src={{item.Product_Image}} alt=""></a>
+                                        <div class="label_product">
+                                            <span class="label_sale">Sale</span>
+                                        </div>
+                                    </div>
+                                    <figcaption class="product_content">
+                                        <h4><a >{{item.Product_Name}}</a></h4>
+                                        <div class="price_box"> 
+                                            <span class="old_price">{{item.Product_Dis_Price}} ₹</span>
+                                            <span class="current_price">{{item.Product_Price}} ₹</span>
+                                            <span class="current_price">{{item.Product_Quantity}} ₹</span>
+                                        </div>
+                                    </figcaption>  
+                                    {%  if item.Product_Quantity != "0" and item.Product_Quantity != 0%}
+                                    <form action="{% url 'oaddToCart' %}" method="POST">
+                                        {% csrf_token %}
+                                    <div class="product_variant_quantity d-flex align-items-center">
+                                        <div class="pro-qty border">
+                                            <input min="1" max="100" type="tex" value="1" name="quantity">
+                                        </div>
+                                      
+                                            <input type="hidden" name="name" value="{{item.Product_Name}}"/>
+                                            <input type="hidden" name="price" value="{{item.Product_Dis_Price}}"/>
+                                            <input type="hidden" name="img" value="{{item.Product_Image}}"/>
+                                            <button class="btn btn-link" type="submit">add to cart</button>  
+                                  
+                                    </div>
+                                </form>
+                                {%else%}
+                                <h5 style="color: red;background-color: transparent;"  class="btn btn-link">Out of Stock</h5>
+                                {%endif%}
+                                     
+                                </figure>
+                            </article>
+                        </div>
+                        {% endif %}
+                          {% endfor %}
+
+
+                          
+                        </div>
+
+                  
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  </div>
 </div>
-<hr >
+<!-- shop page section end -->
+
+<!-- blog section end -->
+{% endblock %}
+ 
+
+   
 
 
+    
 
 
-<h3 id="queen" style="margin-left: 180px;"></h3>
-<style> 
-.grow {
-  border-radius: 10px;
-  height: 380px;
-  width: 25%;
-  margin: 5px 1% 5px 1%;
-  float: left;
-  margin-bottom: 40px;
-  position: relative;
-  transition: height 0.5s;
-  -webkit-transition: height 0.5s;
-  text-align: center;
-  overflow: hidden;
-}
-.grow:hover {
-  height: 520px;
-  background-color: #337ab7;
-}
-button{
-  background-color: white;
-  color: #337ab7;
-}
-button:hover{
-  background-color: #337ab7;
-  color: white;
-}
-
-footer{
- margin-top: 500px;
- height: 300px;
- background-color: #337ab7;
- font-size: 25px;
- text-align: justify;
- font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
- font-weight: bolder;
-}
-
-#info{
-  margin-top: 20px;
-  margin-right:800px;
-  margin-left: 180px;
-}
-#icon1{
-  padding: 15px;
-  margin-top: -20px;
-  margin-left: 560px;
-  margin-bottom: -20px
-
-}
-#icon2{
-  padding: 15px;
-}
-#icon3{
-  padding: 15px;
-}
-#icon4{
-  padding: 15px;
-}
-
-</style>
-<div class="grow" style="background-color: white;margin-left: 180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-  <img style="width: 100%;"src="static/Images/off1.webp" name="url"/>
-  <h3 style="margin-top: 5px;margin-left: -130px;" name="name">Kids Study Solution</h3> 
-  <h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-  <h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o1}}</h4>
-  <hr style="margin-top: -5px;">
-  <form action="{% url 'oindex1' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 580/mo</button>
-  </form>
-  <hr>  
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-<img style="width: 100%;"src="static/Images/off2.webp"/>
-<h3 style="margin-top: 5px;margin-left: -100px;">Vitello Pro Workstation</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o2}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex2' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 680/mo</button>
-</form>
- <hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-<img style="width: 100%;"src="static/Images/off3.webp"/>
-<h3 style="margin-top: 5px;margin-left: -150px;">Lana Workstation</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o3}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex3' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 580/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-
-
-
-
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-left:180px;margin-top: 40px;clear: both;">
-<img style="width: 100%;"src="static/Images/off4.webp"/>
-<h3 style="margin-top: 5px;margin-left: -135px;">Vitello Workstation</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o4}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex4' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 980/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-top: 40px;">
-<img style="width: 100%;"src="static/Images/off5.webp"/>
-<h3 style="margin-top: 5px;margin-left: -125px;">MIlli workstation-Pro</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o5}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex5' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 740/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-top: 40px;">
-<img style="width: 100%;"src="static/Images/off6.webp"/>
-<h3 style="margin-top: 5px;margin-left: -160px;">Roo Study Table</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o6}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex6' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 820/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-
-
-
-
-<div class="grow" style="background-color: white;margin-left:180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);clear: both;margin-top: 40px;">
-<img style="width: 100%;"src="static/Images/off7.webp"/>
-<h3 style="margin-top: 5px;margin-left: -220px;">Office Chair</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o7}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex7' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 980/mo</button>
-</form>
- <hr>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</button>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-top: 40px;">
-<img style="width: 100%;"src="static/Images/off8.webp"/>
-<h3 style="margin-top: 5px;margin-left: -220px;">Aero Chair</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o8}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex8' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 740/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);margin-top: 40px;">
-<img style="width: 100%;"src="static/Images/off9.webp"/>
-<h3 style="margin-top: 5px;margin-left: -220px;">Flexo Chair</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o9}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex9' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 1180/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-
-
-
-
-
-</style>
-<div class="grow" style="background-color: white;margin-left: 180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-<img style="width: 100%;"src="static/Images/off10.webp"/>
-<h3 style="margin-top: 5px;margin-left: -155px;">Mini Workstation</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o10}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex10' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 1180/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-<img style="width: 100%;"src="static/Images/off11.webp"/>
-<h3 style="margin-top: 5px;margin-left: -160px;">Roo Teak Table</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o11}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex11' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 900/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-<img style="width: 100%;"src="static/Images/off12.webp"/>
-<h3 style="margin-top: 5px;margin-left: -190px;">Nauka Center</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o12}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex12' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 1140/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-
-
-
-
-
-<h3 id="Storage" style="margin-top: 400px;margin-left: 180px;clear: both;"></h3>
-
-</style>
-<div class="grow" style="background-color: white;margin-left: 180px;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-<img style="width: 100%;"src="static/Images/off13.webp"/>
-<h3 style="margin-top: 5px;margin-left: -135px;">Nauka Study Table</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o13}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex13' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 580/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-<img style="width: 100%;"src="static/Images/off14.webp"/>
-<h3 style="margin-top: 5px;margin-left: -220px;">Maria Table</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o14}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex14' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 680/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
-<div class="grow" style="background-color: white;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);">
-<img style="width: 100%;"src="static/Images/off15.webp"/>
-<h3 style="margin-top: 5px;margin-left: -125px;">Folding Utility Table</h3> 
-<h6><img style="width:10%;margin-left: -250px;margin-top: -5px;"src="static/Images/download.png"/> 72 Hours</h6>
-<h4 style="margin-top:-30px;margin-left: 250px;color: red;">{{o15}}</h4>
-<hr style="margin-top: -5px;">
-<form action="{% url 'oindex15' %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" id="price" style="margin-left: 260px;margin-top: -10px;border-style: solid;border-radius: 20px;width: 100px;height: 25px;padding: 3px;"name="price"> ₹ 1140/mo</button>
-</form>
-<hr>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cumque esse, repudiandae ea cum eum totam ratione fugiat asperiores, et necessitatibus aut nemo nostrum soluta. Libero fugiat architecto itaque ea.</p>
-</div>
   
-  <br>
-  <br>
-  <br>
-
-
-
-
-<footer>
-    <p>
-      <br>
-      <img style="margin-left: 665px;clear: both;"src="static/Images/logo.png"/>
-      <h3 style="margin-left:670px;color: white;">Follow us On</h3>
-    </p>
-    <a id = "icon1"  href="https://www.google.com/">
-      <img alt="Qries" src="static/Images/icon (1).png"
-      width=50" height="50"/></a>
-    <a id = "icon2"href="https://www.google.com/">
-        <img alt="Qries" src="static/Images/icon (2).png"
-        width=50" height="50"/></a>
-    <a id = "icon3"href="https://www.google.com/">
-          <img alt="Qries" src="static/Images/icon (3).png"
-          width=50" height="50"/></a>
-    <a id = "icon4"href="https://www.google.com/">
-          <img alt="Qries" src="static/Images/icon (4).png"
-          width=50" height="50"></a>
-          <h2 style="margin-left:140px;margin-top:-150px;color: white;">Contact us</h2>
-          <h4 style="margin-left:140px;color: white;">Mail : abc123@gmail.com</h4>
-          <h4 style="margin-left:140px;color: white;">Contact us: 1234567890</h4>
-  
-          <h2 style="margin-left:1100px;margin-top:-107px;color: white;">Address</h2>
-          <h4 style="margin-left:1100px;color: white;">Line 1 sample text</h4>
-          <h4 style="margin-left:1100px;color: white;">Line 2 sample text</h4>
-          <h4 style="margin-left:1100px;color: white;">Line 3 sample text</h4>
-  
-  
-  </footer>
-
-
-</body>
-</html>
